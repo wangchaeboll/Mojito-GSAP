@@ -53,13 +53,27 @@ body {
 }
 
 @utility masked-img {
-    mask-image: url("/images/mask-img.png");
+    mask-image: url("public/images/mask-img.png");
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: 50%;
 }
 
+.viewport-line {
+    @apply fixed top-0  w-full border-red-800 border-2 z-[999]
+}
+
+.check-art {
+    @apply absolute top-0  w-full border-red-800 border-2 z-[999]
+}
+
+.target-line {
+    @apply absolute bottom-0  w-full border-blue-800 border-2 z-[999]
+}
+
 @layer components {
+
+
     main {
         @apply w-full overflow-x-hidden;
     }
@@ -86,6 +100,14 @@ body {
 
     .noisy {
         @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+    }
+
+    .hero {
+        @apply inset-0 size-full bg-[url("/images/noise.png")];
+    }
+
+    .coco{
+        @apply inset-0 size-full bg-[url("/images/noise.png")];
     }
 
     #hero {
@@ -133,11 +155,11 @@ body {
     }
 
     video {
-        @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
+        @apply w-full md:h-[80%] bottom-0 absolute h-[50%] left-0 md:object-contain object-bottom object-cover border-transparent;
     }
 
     #cocktails {
-        @apply relative min-h-dvh w-full overflow-hidden;
+        @apply relative h-full min-h-dvh w-full overflow-hidden border-transparent;
 
         #c-left-leaf {
             @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
@@ -275,18 +297,18 @@ body {
     }
 
     #menu {
-        @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient;
+        @apply relative min-h-dvh w-full mt-0 2xl:px-0 px-5 py-20;
 
         #m-left-leaf {
-            @apply object-contain absolute -bottom-20 left-0 md:w-fit w-1/3;
+            @apply object-contain absolute -bottom-0 left-0 md:w-fit w-1/3;
         }
 
         #m-right-leaf {
-            @apply object-contain absolute -top-40 right-0 md:w-fit w-1/4;
+            @apply object-contain absolute -top-0 right-0 md:w-fit w-1/4;
         }
 
         .cocktail-tabs {
-            @apply grid md:grid-cols-4 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
+            @apply grid md:grid-cols-4 grid-cols-2 md:gap-20 gap-10 relative z-10 md:max-w-6xl md:mx-auto bg-transparent;
 
             button {
                 @apply md:text-3xl text-xl pb-2 cursor-pointer hover:text-yellow hover:border-yellow border-b-1 transition-colors font-modern-negra;
@@ -313,15 +335,15 @@ body {
             @apply flex-center mt-10;
 
             img {
-                @apply object-contain h-[60vh];
+                @apply object-contain h-[60vh] md:-translate-x-23 lg:-translate-x-0;
             }
         }
 
         .recipe {
-            @apply flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0;
+            @apply flex max-md:flex-col gap-10 md:items-center justify-around w-full absolute bottom-0;
 
             .info {
-                @apply space-y-4 lg:translate-y-20;
+                @apply space-y-4 lg:-translate-y-40 translate-x-20;
 
                 #title {
                     @apply font-modern-negra md:text-6xl text-3xl text-yellow max-w-40;
@@ -329,7 +351,7 @@ body {
             }
 
             .details {
-                @apply space-y-5 md:max-w-md text-left;
+                @apply space-y-5 md:max-w-md text-left lg:translate-y-20 translate-x-20;
 
                 h2 {
                     @apply md:text-5xl text-3xl font-serif;

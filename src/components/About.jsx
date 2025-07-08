@@ -13,14 +13,15 @@ const About = () => {
             scrollTrigger: {
                 trigger: "#about",
                 start: "top center",
-
+                end: "bottom 75%",
+                scrub: true,
             }
         })
         scrollTimeline.from(titleSplit.words, {
             opacity: 0, duration: 1, yPercent: 100, ease: 'expo.out', stagger: 0.02
-        }).from(".top-grid div, .bottom.grid div", {
+        }).from(".top-grid div, .bottom-grid div", {
             opacity: 0, duration: 1, yPercent: 100, ease: 'expo.inOut',stagger: 0.04
-        }, "-=0.5")
+        },)
     })
     return (
         <div id="about">
